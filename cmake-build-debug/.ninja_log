@@ -1,0 +1,13 @@
+# ninja log v6
+1	189	7669143391167180	build.ninja	4a880a2bd250c4a2
+938	4367	7669122044551035	C:/Projects/arduino/alarm_clock/cmake-build-debug/CMakeFiles/upload	af3a7a0f65aad0d6
+2	938	7669122035183452	CMakeFiles/build	a77d9c77bc1d8482
+2	938	7669122035183452	C:/Projects/arduino/alarm_clock/cmake-build-debug/CMakeFiles/build	a77d9c77bc1d8482
+938	4367	7669122044551035	CMakeFiles/upload	af3a7a0f65aad0d6
+1	27	7669130566835680	C:/Projects/arduino/alarm_clock/cmake-build-debug/force_rebuild	658f5d519f12fd2d
+1	4402	7669137901305205	CMakeFiles/upload_force_new	b3311b15a95f979e
+1	27	7669130566835680	force_rebuild	658f5d519f12fd2d
+1	4402	7669137901305205	C:/Projects/arduino/alarm_clock/cmake-build-debug/CMakeFiles/upload_force_new	b3311b15a95f979e
+1	193	7669143391167180	build.ninja	4a880a2bd250c4a2
+1	4476	7669143391397219	CMakeFiles/upload_force_new	b3311b15a95f979e
+1	4476	7669143391397219	C:/Projects/arduino/alarm_clock/cmake-build-debug/CMakeFiles/upload_force_new	b3311b15a95f979e

@@ -1,0 +1,22 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: ForIndentation
+
+BreakBeforeBraces: Allman
+
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+
+SpaceBeforeParens: Never
+SpacesInParentheses: false
+
+PointerAlignment: Left
+
+Cpp11BracedListStyle: true
+
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+
+ColumnLimit: 0
