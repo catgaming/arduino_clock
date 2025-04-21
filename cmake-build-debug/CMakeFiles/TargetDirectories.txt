@@ -1,6 +1,0 @@
-C:/Projects/arduino/alarm_clock/cmake-build-debug/CMakeFiles/clion_indexer_dummy.dir
-C:/Projects/arduino/alarm_clock/cmake-build-debug/CMakeFiles/build.dir
-C:/Projects/arduino/alarm_clock/cmake-build-debug/CMakeFiles/upload.dir
-C:/Projects/arduino/alarm_clock/cmake-build-debug/CMakeFiles/upload_force_new.dir
-C:/Projects/arduino/alarm_clock/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Projects/arduino/alarm_clock/cmake-build-debug/CMakeFiles/rebuild_cache.dir
