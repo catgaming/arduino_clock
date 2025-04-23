@@ -10,9 +10,8 @@ void setup()
 
 void loop()
 {
-	lcd::print1(clock::get_now_time_string());
-	lcd::print2(clock::get_now_time_string());
+	lcd::print1(clock::get_clock_time_string());
 
-	clock::update_now();
+	clock::update_clock_time();
 	delay(100);
 }
