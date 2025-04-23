@@ -74,4 +74,37 @@ void get_compile_time(time_t& out)
 	// __TIME__ is formatted HH:mm:ss
 	sscanf(__TIME__, "%02u:%02u:%02u", &out.hours, &out.minutes, &out.seconds); // %02u -- 2 unsigned ints
 }
+
+static time_t alarm_time_;
+bool alarm_triggered_; // has the alarm been hit yet?
+
+void set_alarm_time(const time_t& time)
+{
+	// didn't set up an operator, so we do this instead
+	alarm_time_.hours = time.hours;
+	alarm_time_.minutes = time.minutes;
+	alarm_time_.seconds = 0; // always 0, nobody needs seconds on an alarm
+	alarm_triggered_ = false;
+}
+const time_t& get_alarm_time()
+{
+	return alarm_time_;
+}
+const char* get_alarm_time_string()
+{
+	return time_to_string(alarm_time_);
+}
+
+bool check_alarm()
+{
+	// check if the alarm time is equal to the clock time
+	// clock_time_.seconds should be 0 because otherwise the alarm would be triggering for an entire minute
+	if (clock_time_.hours == alarm_time_.hours && clock_time_.minutes == alarm_time_.minutes && clock_time_.seconds == 0)
+	{
+		alarm_triggered_ = true;
+		return true;
+	}
+	return false;
+}
+
 } // namespace clock

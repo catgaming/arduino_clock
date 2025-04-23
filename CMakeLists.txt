@@ -11,6 +11,7 @@ set(PORT "COM4") # serial port from device manager. if communication fails check
 set(ARDUINO_CLI "C:/Projects/arduino/tools/arduino-cli.exe") # for some reason adding it to PATH didn't work. manually defining it here instead
 
 include_directories("${CMAKE_SOURCE_DIR}/thirdparty")
+include_directories("${CMAKE_SOURCE_DIR}/thirdparty/remotelib")
 
 file(GLOB SOURCE
         "${SOURCE_DIR}/source.ino"
@@ -33,7 +34,7 @@ add_custom_target(upload
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
 
-# this adds // to a dummy file every time this target gets built
+# upload_force_new adds // to a dummy file every it gets built
 # clock.cpp includes this file, that way we get a new clock obj file (with a new __TIME__) every upload
 add_custom_target(upload_force_new ALL
         COMMAND ${CMAKE_COMMAND} -E echo "//" >> ${SOURCE_DIR}/force_compile.h
