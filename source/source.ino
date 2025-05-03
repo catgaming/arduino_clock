@@ -50,7 +50,7 @@ void setup()
 	clock::init();
 	remote::init(IR_PIN);
 
-	randomSeed(analogRead(0)); // seed the random for later
+	randomSeed(analogRead(millis())); // seed the random for later
 }
 
 void loop()
@@ -127,6 +127,7 @@ void loop()
         }
     }
 
+	// display
     switch (curr_mode)
 	{
     case mode_t::SHOW_TIME:
@@ -148,16 +149,28 @@ void loop()
 
     case mode_t::ALARM_RINGING:
 	{
-        char typed[4] = {'_', '_', '\0', '\0'};
+        char typed[4] = {'_', '_', '\0'};
         if (input_digits[0] >= 0) typed[0] = '0' + input_digits[0];
         if (input_digits[1] >= 0) typed[1] = '0' + input_digits[1];
 
         lcd::print1(" %d + %d = ?", problem_a, problem_b);
         lcd::print2("  Ans: %s", typed);
 
-		//
+		if (answer == (problem_a + problem_b))
+        {
+            curr_mode = mode_t::SHOW_TIME;
+            digitalWrite(BUZZER_PIN, LOW);
+            beep_phase = 0;
+            last_beep_ms = millis();
+            digitalWrite(BUZZER_PIN, LOW);
+
+            lcd::clear();
+
+            return; // stop running the buzzer logic this loop so it doesn't just stay on
+        }
+
         unsigned long now = millis();
-        if (beep_phase % 3 == 0) {
+        if (beep_phase % 2 == 0) {
             // even phases: buzz on
             if (now - last_beep_ms > 100) {
                 digitalWrite(BUZZER_PIN, LOW);
@@ -180,13 +193,6 @@ void loop()
                 }
             }
         }
-
-		if (answer == (problem_a + problem_b))
-		{
-            curr_mode = mode_t::SHOW_TIME;
-            digitalWrite(BUZZER_PIN, LOW);
-            lcd::clear();
-		}
 
         break;
     }

@@ -76,7 +76,6 @@ void get_compile_time(time_t& out)
 }
 
 static time_t alarm_time_;
-bool alarm_triggered_; // has the alarm been hit yet?
 
 void set_alarm_time(const time_t& time)
 {
@@ -84,7 +83,6 @@ void set_alarm_time(const time_t& time)
 	alarm_time_.hours = time.hours;
 	alarm_time_.minutes = time.minutes;
 	alarm_time_.seconds = 0; // always 0, nobody needs seconds on an alarm
-	alarm_triggered_ = false;
 }
 const time_t& get_alarm_time()
 {
@@ -101,7 +99,6 @@ bool check_alarm()
 	// clock_time_.seconds should be 0 because otherwise the alarm would be triggering for an entire minute
 	if (clock_time_.hours == alarm_time_.hours && clock_time_.minutes == alarm_time_.minutes && clock_time_.seconds == 0)
 	{
-		alarm_triggered_ = true;
 		return true;
 	}
 	return false;
